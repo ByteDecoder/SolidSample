@@ -1,3 +1,5 @@
+using System;
+
 namespace ArdalisRating
 {
   public class RaterFactory
@@ -21,6 +23,20 @@ namespace ArdalisRating
         default:
           // currently this can't be reached 
           return new UnknownPolicyRater(engine, engine.Logger);
+      }
+    }
+
+    public static Rater ReflectionCreate(Policy policy, RatingEngine engine)
+    {
+      try
+      {
+        return (Rater)Activator.CreateInstance(
+            Type.GetType($"ArdalisRating.{policy.Type}PolicyRater"),
+            new object[] { engine, engine.Logger });
+      }
+      catch
+      {
+        return null;
       }
     }
   }

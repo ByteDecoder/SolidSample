@@ -1,8 +1,4 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System;
-
-namespace ArdalisRating
+﻿namespace ArdalisRating
 {
   /// <summary>
   /// The RatingEngine reads the policy application details from a file and produces a numeric 
@@ -26,7 +22,7 @@ namespace ArdalisRating
 
       var factory = new RaterFactory();
       var rater = factory.Create(policy, this);
-      rater.Rate(policy);
+      rater?.Rate(policy);
 
       Logger.Log("Rating completed.");
     }
