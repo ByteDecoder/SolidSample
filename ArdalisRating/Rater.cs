@@ -1,16 +1,15 @@
 namespace ArdalisRating
 {
-  public abstract class Rater
-  {
-    protected readonly RatingEngine _engine;
-    protected readonly ConsoleLogger _logger;
-
-    public Rater(RatingEngine engine, ConsoleLogger logger)
+     public abstract class Rater
     {
-      _engine = engine;
-      _logger = logger;
-    }
+        protected readonly IRatingUpdater _ratingUpdater;
+        public ILogger Logger { get; set; } = new ConsoleLogger();
 
-    public abstract void Rate(Policy policy);
-  }
+        public Rater(IRatingUpdater ratingUpdater)
+        {
+            _ratingUpdater = ratingUpdater;
+        }
+
+        public abstract void Rate(Policy policy);
+    }
 }
