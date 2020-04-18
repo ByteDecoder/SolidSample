@@ -57,6 +57,3 @@ LIFE Samples
   "dateOfBirth": "1918-05-10",
   "amount": "10000000"
 }
-
-
-
