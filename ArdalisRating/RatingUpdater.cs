@@ -1,3 +1,5 @@
+using ArdalisRating.Core;
+
 namespace ArdalisRating
 {
   public class RatingUpdater : IRatingUpdater

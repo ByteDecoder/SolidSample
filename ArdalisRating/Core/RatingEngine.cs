@@ -1,4 +1,6 @@
-﻿namespace ArdalisRating
+﻿using ArdalisRating.Core.Interfaces;
+
+namespace ArdalisRating.Core
 {
   /// <summary>
   /// The RatingEngine reads the policy application details from a file and produces a numeric 

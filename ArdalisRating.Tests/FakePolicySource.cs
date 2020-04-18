@@ -1,3 +1,5 @@
+using ArdalisRating.Core.Interfaces;
+
 namespace ArdalisRating.Tests
 {
   public class FakePolicySource : IPolicySource

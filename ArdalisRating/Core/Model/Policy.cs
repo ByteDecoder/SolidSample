@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace ArdalisRating
+namespace ArdalisRating.Core.Model
 {
   public class Policy
   {

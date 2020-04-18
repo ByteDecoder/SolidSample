@@ -1,4 +1,5 @@
 using System.IO;
+using ArdalisRating.Core.Interfaces;
 
 namespace ArdalisRating.Infrastructure.Loggers
 {

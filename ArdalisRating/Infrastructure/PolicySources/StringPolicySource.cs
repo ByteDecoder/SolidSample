@@ -1,3 +1,5 @@
+using ArdalisRating.Core.Interfaces;
+
 namespace ArdalisRating.Infrastructure.PolicySources
 {
   public class StringPolicySource : IPolicySource

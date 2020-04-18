@@ -1,3 +1,7 @@
+using ArdalisRating.Core;
+using ArdalisRating.Core.Interfaces;
+using ArdalisRating.Core.Model;
+
 namespace ArdalisRating
 {
   public interface IRatingContext: ILogger
