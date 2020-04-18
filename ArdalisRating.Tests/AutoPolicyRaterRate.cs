@@ -9,7 +9,7 @@ namespace ArdalisRating.Tests
     [Fact]
     public void LogsMakeRequiredMessageGivenPolicyWithoutMake()
     {
-      var policy = new Policy() { Type = "Auto" };
+      var policy = new Policy() { Type = PolicyType.Auto };
       var logger = new FakeLogger();
       var rater = new AutoPolicyRater(null);
       rater.Logger = logger;
@@ -24,7 +24,7 @@ namespace ArdalisRating.Tests
     {
       var policy = new Policy()
       {
-        Type = "Auto",
+        Type = PolicyType.Auto,
         Make = "BMW",
         Deductible = 250m
       };
@@ -41,7 +41,7 @@ namespace ArdalisRating.Tests
     {
       var policy = new Policy()
       {
-        Type = "Auto",
+        Type = PolicyType.Auto,
         Make = "BMW",
         Deductible = 500m
       };

@@ -12,7 +12,7 @@ namespace ArdalisRating.Tests
     {
       var policy = new Policy
       {
-        Type = "Land",
+        Type = PolicyType.Land,
         BondAmount = 200000,
         Valuation = 200000
       };

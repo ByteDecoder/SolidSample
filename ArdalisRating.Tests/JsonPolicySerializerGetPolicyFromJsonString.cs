@@ -30,7 +30,7 @@ namespace ArdalisRating.Tests
 
       var policy = new Policy
       {
-        Type = "Auto",
+        Type = PolicyType.Auto,
         Make = "BMW"
       };
       AssertPoliciesEqual(result, policy);
