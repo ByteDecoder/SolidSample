@@ -1,6 +1,8 @@
+using ArdalisRating.Infrastructure.Loggers;
+
 namespace ArdalisRating
 {
-     public abstract class Rater
+  public abstract class Rater
     {
         protected readonly IRatingUpdater _ratingUpdater;
         public ILogger Logger { get; set; } = new ConsoleLogger();

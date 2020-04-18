@@ -1,6 +1,6 @@
 using System;
 
-namespace ArdalisRating
+namespace ArdalisRating.Infrastructure.Loggers
 {
   public class ConsoleLogger : ILogger
   {
