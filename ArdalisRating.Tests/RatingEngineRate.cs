@@ -1,18 +1,16 @@
 using ArdalisRating.Core;
-using ArdalisRating.Core.Interfaces;
 using ArdalisRating.Core.Model;
+using ArdalisRating.Core.Raters;
 using ArdalisRating.Infrastructure.Serializers;
 using Newtonsoft.Json;
-using System;
-using System.IO;
 using Xunit;
 
 namespace ArdalisRating.Tests
 {
   public class RatingEngineRate
   {
-    private RatingEngine _engine;
-    private ILogger _logger;
+    private RatingEngine _engine = null;
+    private FakeLogger _logger;
     private FakePolicySource _policySource;
     private JsonPolicySerializer _policySerializer;
 
@@ -33,12 +31,12 @@ namespace ArdalisRating.Tests
     {
       var policy = new Policy
       {
-        Type = PolicyType.Land,
+        Type = "Land",
         BondAmount = 200000,
         Valuation = 200000
       };
       string json = JsonConvert.SerializeObject(policy);
-      File.WriteAllText("policy.json", json);
+      _policySource.PolicyString = json;
 
       _engine.Rate();
       var result = _engine.Rating;
@@ -56,7 +54,7 @@ namespace ArdalisRating.Tests
         Valuation = 260000
       };
       string json = JsonConvert.SerializeObject(policy);
-      File.WriteAllText("policy.json", json);
+      _policySource.PolicyString = json;
 
       _engine.Rate();
       var result = _engine.Rating;

@@ -1,4 +1,5 @@
 ﻿using ArdalisRating.Core.Interfaces;
+using ArdalisRating.Core.Raters;
 
 namespace ArdalisRating.Core
 {
@@ -9,15 +10,22 @@ namespace ArdalisRating.Core
   public class RatingEngine
   {
     private readonly ILogger _logger;
-    public IRatingContext Context { get; set; } = new DefaultRatingContext();
+    private readonly IPolicySource _policySource;
+    private readonly IPolicySerializer _policySerializer;
+    private readonly RaterFactory _raterFactory;
+
     public decimal Rating { get; set; }
 
     // public RatingEngine() : this(new ConsoleLogger()) { }
 
-    public RatingEngine(ILogger logger)
+    public RatingEngine(ILogger logger, IPolicySource policySource,
+                        IPolicySerializer policySerializer,
+                        RaterFactory raterFactory)
     {
-      Context.Engine = this;
       _logger = logger;
+      _policySource = policySource;
+      _policySerializer = policySerializer;
+      _raterFactory = raterFactory;
     }
 
     public void Rate()
@@ -26,11 +34,11 @@ namespace ArdalisRating.Core
 
       _logger.Log("Loading policy.");
 
-      string policyJson = Context.LoadPolicyFromFile();
+      string policyString = _policySource.GetPolicyFromSource();
 
-      var policy = Context.GetPolicyFromJsonString(policyJson);
+      var policy = _policySerializer.GetPolicyFromString(policyString);
 
-      var rater = Context.CreateRaterForPolicy(policy, Context);
+      var rater = _raterFactory.Create(policy);
 
       rater.Rate(policy);
 
