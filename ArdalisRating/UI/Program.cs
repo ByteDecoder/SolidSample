@@ -5,7 +5,7 @@ using ArdalisRating.Infrastructure.Loggers;
 using ArdalisRating.Infrastructure.PolicySources;
 using ArdalisRating.Infrastructure.Serializers;
 
-namespace ArdalisRating
+namespace ArdalisRating.UI
 {
   class Program
   {
