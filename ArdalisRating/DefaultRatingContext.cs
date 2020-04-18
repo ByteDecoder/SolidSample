@@ -6,6 +6,8 @@ namespace ArdalisRating
   {
     public RatingEngine Engine { get; set; }
 
+    public ConsoleLogger Logger => throw new NotImplementedException();
+
     public Rater CreateRaterForPolicy(Policy policy, IRatingContext context)
     {
       return new RaterFactory().Create(policy, context);
